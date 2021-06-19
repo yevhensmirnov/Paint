@@ -1,9 +1,43 @@
 const canvas = document.getElementById('jsCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.height = 600;
+canvas.width = 1200;
+
+ctx.lineWidth = 2.5;
+ctx.strokeStyle = 'black';
+
 
 let painting = false;
 
+
+
 function stopPainting() {
     painting = false;
+}
+
+function startPainting() {
+    painting = true;
+}
+
+
+
+function mouseMove(event) {
+    x = event.offsetX;
+    y = event.offsetY;
+    if (painting === false) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    } else {
+        ctx.lineTo(x, y);
+        ctx.stroke();
+    }
+}
+function mouseDown(event) {
+    painting = true;
+}
+function mouseUp(event){
+    stopPainting();
 }
 
 if (canvas) {
@@ -11,16 +45,4 @@ if (canvas) {
     canvas.addEventListener('mousedown', mouseDown)
     canvas.addEventListener('mouseup', mouseUp)
     canvas.addEventListener('mouseleave',stopPainting())
-}
-function mouseMove(e) {
-    x = e.offsetX;
-    y = e.offsetY;
-    console.log(x,y)
-}
-function mouseDown(e) {
-    painting = true;
-    console.log(e)
-}
-function mouseUp(e) {
-    stopPainting()
 }
