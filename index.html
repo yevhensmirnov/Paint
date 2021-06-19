@@ -10,6 +10,16 @@
   <body>
     <canvas id="jsCanvas" class="canvas"></canvas>
     <div class="controls">
+      <div class="controls_range">
+        <input
+          type="range"
+          id="jsRange"
+          min="0"
+          max="5.0"
+          value="2.5"
+          step="0.1"
+        />
+      </div>
       <div class="controls_button">
         <button id="jsMode">Рисовать</button>
         <button id="jsSave">Сохранить</button>
@@ -21,10 +31,7 @@
         <div class="controls_color" style="background-color: green"></div>
         <div class="controls_color" style="background-color: blue"></div>
         <div class="controls_color" style="background-color: skyblue"></div>
-        <div
-          class="controls_color"
-          style="background-color: rgb(100, 18, 231)"
-        ></div>
+        <div class="controls_color" style="background-color: violet"></div>
         <div class="controls_color" style="background-color: black"></div>
         <div class="controls_color" style="background-color: white"></div>
       </div>
